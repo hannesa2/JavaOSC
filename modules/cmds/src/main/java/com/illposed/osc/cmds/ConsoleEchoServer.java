@@ -30,7 +30,7 @@ public class ConsoleEchoServer extends OSCPortIn {
 
 	// Public API
 	@SuppressWarnings("WeakerAccess")
-	public static final int DEFAULT_PORT = 7770;
+	public static final int DEFAULT_PORT = 5005;
 	private static final int ARG_INDEX_ADDRESS = 0;
 	private static final int ARG_INDEX_PORT = 1;
 
