@@ -36,34 +36,29 @@ import org.slf4j.LoggerFactory;
  *     8325
  *
  * }</pre></blockquote>
+ *
  * @see ConsoleEchoServer
  */
 public class EchoOSCMessageListener implements OSCMessageListener {
 
-	private final Logger log;
+    private final Logger log;
 
-	// Public API
-	@SuppressWarnings("WeakerAccess")
-	public EchoOSCMessageListener(final Logger log) {
+    // Public API
+    @SuppressWarnings("WeakerAccess")
+    public EchoOSCMessageListener(final Logger log) {
 
-		this.log = log;
-	}
+        this.log = log;
+    }
 
-	// Public API
-	@SuppressWarnings("unused")
-	public EchoOSCMessageListener() {
-		this(LoggerFactory.getLogger(EchoOSCMessageListener.class));
-	}
+    // Public API
+    @SuppressWarnings("unused")
+    public EchoOSCMessageListener() {
+        this(LoggerFactory.getLogger(EchoOSCMessageListener.class));
+    }
 
-	@Override
-	public void acceptMessage(final OSCMessageEvent event) {
-
-		final OSCMessage message = event.getMessage();
-		log.info(message.getAddress());
-		log.info("  {}", message.getInfo().getArgumentTypeTags());
-		for (final Object arg : message.getArguments()) {
-			log.info("    {}", arg);
-		}
-		log.info("");
-	}
+    @Override
+    public void acceptMessage(final OSCMessageEvent event) {
+        final OSCMessage message = event.getMessage();
+        log.info("{} {}", message.getAddress(), message.getArguments());
+    }
 }
